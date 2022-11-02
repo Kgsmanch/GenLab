@@ -1,5 +1,10 @@
-import Lab from "../models/Laboratorio.js";
+import ExameSchema from "../models/Exame.js";
 
 export function createExameController(request, response) {
-    return console.log('chegamos no controller')
+    const examBody = request.body
+    try {
+
+    } catch (error) {
+        console.log(error)
+    }
 }

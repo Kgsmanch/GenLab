@@ -1,10 +1,16 @@
 import express from "express";
 const router = express.Router();
-import { createValidator } from "../middleware/validator/laboratorio.validator.js";
-import { createLabController } from "../controllers/laboratorio.controller.js";
+import { createValidator, updateValidate } from "../middleware/validator/laboratorio.validator.js";
+import { createLabController, findAllLabController, updateLabController, deleteLabController } from "../controllers/laboratorio.controller.js";
 
 router
-    .route("/lab") //route /lab
+    .route("/") //route /lab
     .post(createValidator, createLabController)
+    .get(findAllLabController)
 
-export default router;  
+router
+    .route("/:nome")
+    .patch(updateValidate, updateLabController)
+    .delete(deleteLabController)
+
+export default router;
