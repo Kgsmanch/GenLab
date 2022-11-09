@@ -4,7 +4,8 @@ import labRoute from "./laboratorio.routes.js";
 import exameRoute from "./exame.routes.js";
 
 router.use('/lab', labRoute);
-router.use('/', exameRoute);
+router.use('/exam', exameRoute);
+
 
 
 export default router;

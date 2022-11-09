@@ -1,10 +1,26 @@
 import express from "express";
 const router = express.Router();
-import { createValidator } from "../middleware/validator/exame.validator.js";
-import { createExameController } from "../controllers/exame.controller.js";
+import { createValidator, updateValidator } from "../middleware/validator/exame.validator.js";
+import {
+    createExameController,
+    findAllExamController,
+    updateExamController,
+    deleteExamController,
+    findWhereExamController
+} from "../controllers/exame.controller.js";
 
 router
-    .route("/exam") //route /lab
+    .route("/") //route /exam
+    .get(findAllExamController)
     .post(createValidator, createExameController)
 
-export default router;  
+router
+    .route("/:nome") //route /exam/:nome
+    .patch(updateValidator, updateExamController)
+    .delete(deleteExamController)
+
+router
+    .route("/where/:nome") //route /exam/where/:nome
+    .get(findWhereExamController)
+
+export default router;
