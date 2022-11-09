@@ -10,13 +10,11 @@ const Laboratorio = new mongoose.Schema({
     status: String,
     exame_labs: [{ type: mongoose.ObjectId, ref: 'Exame' }],
     isDeleted: { type: Boolean, default: 'false' }
-})
+});
 
 Laboratorio.pre('find', function () {
-    this.where({ isDeleted: false });
-})
-
+    this.where({ isDeleted: false })
+});
 
 const Lab = model("laboratorio", Laboratorio);
-
 export default Lab;

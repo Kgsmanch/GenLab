@@ -8,12 +8,11 @@ const Exame = new Schema({
     },
     tipo_exame: String,
     status_exame: String,
-})
+});
 
 Exame.pre('find', function () {
     this.where({ isDeleted: false });
 });
 
 const ExameSchema = model("Exame", Exame);
-
 export default ExameSchema;

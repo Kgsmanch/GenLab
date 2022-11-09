@@ -27,4 +27,5 @@ router
 router
     .route("/exams/exclude/:nome") //route /lab/exams/exclude:nome
     .patch(examExcludeController)
+
 export default router;

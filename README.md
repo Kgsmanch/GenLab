@@ -12,4 +12,3 @@ Simulando um sistema que realiza a manutencao de cadastro entre de laboratorios 
 - Busca por nome do exame e retorna todos os laboratorios que realizam tal exame
 - Fornece lista de laboratorios ativos
 - Fornece lista de exames da rede
-

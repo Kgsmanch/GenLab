@@ -2,14 +2,14 @@ import ExameSchema from "../models/Exame.js";
 import Lab from "../models/Laboratorio.js";
 
 export async function createExameController(request, response) {
-    const examBody = request.body
+    const examBody = request.body;
     try {
         const newExam = await ExameSchema.create({
             nome_exame: examBody.nome_exame,
             tipo_exame: examBody.tipo_exame,
             status_exame: examBody.status_exame
-        })
-        await newExam.save()
+        });
+        await newExam.save();
         return response.status(201).json(newExam);
     } catch (error) {
         console.log(error)
@@ -18,8 +18,8 @@ export async function createExameController(request, response) {
         } else {
             return response.status(500).json("Algo saiu errado, tente novamente");
         }
-    }
-}
+    };
+};
 
 export async function findAllExamController(request, response) {
     try {
@@ -28,7 +28,7 @@ export async function findAllExamController(request, response) {
     } catch (error) {
         return response.status(500).json("Algo saiu errado, tente novamente");
     }
-}
+};
 
 export async function updateExamController(request, response) {
     const examParams = request.params.nome;
@@ -37,12 +37,12 @@ export async function updateExamController(request, response) {
     const filter = { nome_exame: examParams };
     const update = examBody;
     try {
-        const updateExam = await ExameSchema.findOneAndUpdate(filter, update, { new: true })
+        const updateExam = await ExameSchema.findOneAndUpdate(filter, update, { new: true });
         return response.status(200).json(updateExam);
     } catch (error) {
         return response.status(500).json(error);
     }
-}
+};
 
 export async function deleteExamController(request, response) {
     const examParams = request.params.nome;
@@ -54,7 +54,7 @@ export async function deleteExamController(request, response) {
     } catch (error) {
         return response.status(500).json("Algo saiu errado, tente novamente");
     }
-}
+};
 
 export async function findWhereExamController(request, response) {
     const examParams = request.params.nome;
@@ -68,4 +68,4 @@ export async function findWhereExamController(request, response) {
     } catch (error) {
         return response.status(500).json("Algo saiu errado, tente novamente");
     }
-}
+};

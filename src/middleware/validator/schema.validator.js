@@ -12,8 +12,7 @@ export const schemaLab = Joi.object().keys({
     status: Joi.any()
         .valid('ativo', 'inativo')
         .required(),
-    // exame: Joi.array().items(Joi.string()),
-})
+});
 
 export const schemaLabOptional = Joi.object().keys({
     nome: Joi.string()
@@ -24,8 +23,7 @@ export const schemaLabOptional = Joi.object().keys({
         .max(70),
     status: Joi.any()
         .valid('ativo', 'inativo'),
-    // exame: Joi.array().items(Joi.string()),
-})
+});
 
 // ________________EXAMES VALIDATOR_________________________
 
@@ -40,7 +38,7 @@ export const schemaExam = Joi.object().keys({
     status_exame: Joi.string()
         .valid('ativo', 'inativo')
         .required(),
-})
+});
 
 export const schemaExamOptional = Joi.object().keys({
     nome_exame: Joi.string()
@@ -50,4 +48,4 @@ export const schemaExamOptional = Joi.object().keys({
         .valid('analise clinica', 'imagem'),
     status_exame: Joi.string()
         .valid('ativo', 'inativo'),
-})
+});
